@@ -1,1 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Satellite System Design | Constellation-Verse</title>
+    <link rel="stylesheet" href="css/satelliteSystem.css">
+</head>
+<body>
+    <main>
+        <section class="hero" aria-labelledby="page-title">
+            <div class="hero-content">
+                <h1 id="page-title">Satellite System Design</h1>
+                <p>
+                    Making space accessible to everyone through practical satellite systems,
+                    open engineering, and resilient mission design.
+                </p>
+            </div>
 
+            <nav class="hero-nav" aria-label="Satellite system sections">
+                <div class="nav-group">
+                    <button id="projectOverlayOpen" type="button" aria-label="Open project showcase">Project</button>
+                </div>
+                <a href="#service">Service</a>
+                <div class="nav-group">
+                    <button id="systemsOverlayOpen" type="button" aria-label="Open systems showcase">Systems</button>
+                </div>
+                <div class="nav-group">
+                    <button type="button" aria-label="Open company links">Company</button>
+                    <div class="nav-menu">
+                        <a href="#mission">Mission</a>
+                        <a href="#updates" data-overlay-target="updatesOverlay">Updates</a>
+                        <a href="#privacy" data-overlay-target="privacyOverlay">Privacy Policy</a>
+                    </div>
+                </div>
+            </nav>
+        </section>
+
+        <section id="mission" class="mission-intro" aria-labelledby="mission-title">
+            <div class="mission-inner">
+                <p class="eyebrow">Mission</p>
+                <h2 id="mission-title">Space systems for everyone.</h2>
+                <p>
+                    We are building practical satellite system knowledge, tools, and prototypes that make
+                    space technology easier to understand, design, test, and use. The goal is simple:
+                    lower the barrier from idea to mission-ready engineering.
+                </p>
+            </div>
+        </section>
+
+        <section id="service" class="strategy-section" aria-labelledby="market-title">
+            <div class="strategy-inner">
+                <p class="eyebrow">Project + Product + Service</p>
+                <h2 id="market-title">Solving advanced space challenges through innovation.</h2>
+                <p>
+                    We connect research projects, practical products, and focused engineering services
+                    to address current market needs in satellite systems, communication, computing,
+                    and mission design.
+                </p>
+            </div>
+        </section>
+
+        <section class="strategy-section strategy-section-alt" aria-labelledby="systems-title">
+            <div class="strategy-inner">
+                <p class="eyebrow">Systems</p>
+                <h2 id="systems-title">Innovative modular designs for real space problems.</h2>
+                <p>
+                    Our systems approach emphasizes modular architectures, reusable subsystem patterns,
+                    and adaptable space platforms that can be composed to solve advanced mission,
+                    payload, and operations challenges.
+                </p>
+            </div>
+        </section>
+
+        <section id="projectOverlay" class="project-showcase" aria-label="Satellite project showcase" aria-hidden="true">
+            <button class="project-close" type="button" aria-label="Close project showcase">×</button>
+            <div class="project-stage">
+                <div id="projectSlide" class="project-slide" aria-label="Featured satellite projects">
+                    <article class="project-item" style="background-image: url(images/satelliteSystem/pcb-power.svg);">
+                        <div class="content">
+                            <p class="eyebrow">Project</p>
+                            <div class="name">POWER</div>
+                            <div class="des">Power subsystem exploration for satellite generation, storage, regulation, and reliable distribution.</div>
+                            <a href="#details">See More</a>
+                        </div>
+                    </article>
+                    <article class="project-item" style="background-image: url(images/projectImage/6.jpg);">
+                        <div class="content">
+                            <p class="eyebrow">Project</p>
+                            <div class="name">SKY</div>
+                            <div class="des">A satellite systems track for accessible mission design, platform integration, and practical space technology development.</div>
+                            <a href="#details">See More</a>
+                        </div>
+                    </article>
+                    <article class="project-item" style="background-image: url(images/satelliteSystem/pcb-communication.svg);">
+                        <div class="content">
+                            <p class="eyebrow">Project</p>
+                            <div class="name">SQComm</div>
+                            <div class="des">Space Quantum Communication: secure space-to-ground and inter-satellite communication concepts built around quantum information research.</div>
+                            <a href="#details">See More</a>
+                        </div>
+                    </article>
+                    <article class="project-item" style="background-image: url(images/satelliteSystem/pcb-computing.svg);">
+                        <div class="content">
+                            <p class="eyebrow">Project</p>
+                            <div class="name">SXPERIMENT</div>
+                            <div class="des">Space Experiment: a mission experiment platform for testing payloads, onboard computing ideas, and subsystem prototypes in space-like conditions.</div>
+                            <a href="#details">See More</a>
+                        </div>
+                    </article>
+                    <article class="project-item" style="background-image: url(images/satelliteSystem/pcb-control.svg);">
+                        <div class="content">
+                            <p class="eyebrow">Project</p>
+                            <div class="name">CONTROL</div>
+                            <div class="des">Control systems research for attitude sensing, actuation, autonomy, and stable mission operation.</div>
+                            <a href="#details">See More</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="project-controls">
+                    <button id="projectPrev" type="button" aria-label="Previous project">‹</button>
+                    <button id="projectNext" type="button" aria-label="Next project">›</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="systemsOverlay" class="project-showcase" aria-label="Satellite systems showcase" aria-hidden="true">
+            <button class="project-close" type="button" aria-label="Close systems showcase">×</button>
+            <div class="project-stage">
+                <div id="systemsSlide" class="project-slide" aria-label="Satellite system focus areas">
+                    <article class="project-item" style="background-image: url(images/satelliteSystem/pcb-control.svg);">
+                        <div class="content">
+                            <p class="eyebrow">System</p>
+                            <div class="name">CONTROL</div>
+                            <div class="des">Control systems for sensing, actuation, autonomy, and stable mission operation.</div>
+                            <a href="#details">See More</a>
+                        </div>
+                    </article>
+                    <article class="project-item" style="background-image: url(images/satelliteSystem/pcb-mission.svg);">
+                        <div class="content">
+                            <p class="eyebrow">System</p>
+                            <div class="name">MISSION ARCHITECTURE</div>
+                            <div class="des">Mission planning, platform definition, orbit trades, payload goals, and practical system decomposition.</div>
+                            <a href="#details">See More</a>
+                        </div>
+                    </article>
+                    <article class="project-item" style="background-image: url(images/satelliteSystem/pcb-computing.svg);">
+                        <div class="content">
+                            <p class="eyebrow">System</p>
+                            <div class="name">COMPUTING</div>
+                            <div class="des">Onboard computing and experimentation for payload processing, autonomy, and resilient embedded operation.</div>
+                            <a href="#details">See More</a>
+                        </div>
+                    </article>
+                    <article class="project-item" style="background-image: url(images/satelliteSystem/pcb-communication.svg);">
+                        <div class="content">
+                            <p class="eyebrow">System</p>
+                            <div class="name">COMMUNICATION</div>
+                            <div class="des">Space-to-ground links, inter-satellite concepts, signal paths, and communication architecture research.</div>
+                            <a href="#details">See More</a>
+                        </div>
+                    </article>
+                    <article class="project-item" style="background-image: url(images/satelliteSystem/pcb-power.svg);">
+                        <div class="content">
+                            <p class="eyebrow">System</p>
+                            <div class="name">POWER</div>
+                            <div class="des">Satellite power generation, storage, regulation, distribution, and subsystem reliability planning.</div>
+                            <a href="#details">See More</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="project-controls">
+                    <button id="systemsPrev" type="button" aria-label="Previous system">‹</button>
+                    <button id="systemsNext" type="button" aria-label="Next system">›</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="careerOverlay" class="info-overlay" aria-label="Careers" aria-hidden="true">
+            <div class="info-panel">
+                <button class="info-close" type="button" aria-label="Close careers overlay">×</button>
+                <p class="eyebrow">Careers</p>
+                <h2>Build Space Systems With Us</h2>
+                <p>
+                    We are looking for curious builders across embedded systems, computer architecture,
+                    communication, control, and mission design. Bring practical engineering taste and a
+                    willingness to learn in public.
+                </p>
+                <a href="mailto:careers@constellation-verse.example">careers@constellation-verse.example</a>
+            </div>
+        </section>
+
+        <section id="contactOverlay" class="info-overlay" aria-label="Contact Us" aria-hidden="true">
+            <div class="info-panel">
+                <button class="info-close" type="button" aria-label="Close contact overlay">×</button>
+                <p class="eyebrow">Contact Us</p>
+                <h2>Start A Conversation</h2>
+                <p>
+                    Reach out for collaborations, research discussions, project questions, or satellite
+                    system design ideas. We are especially interested in accessible space technology and
+                    practical experimentation.
+                </p>
+                <a href="mailto:contact@constellation-verse.example">contact@constellation-verse.example</a>
+            </div>
+        </section>
+
+        <section id="updatesOverlay" class="info-overlay" aria-label="Updates" aria-hidden="true">
+            <div class="info-panel">
+                <button class="info-close" type="button" aria-label="Close updates overlay">×</button>
+                <p class="eyebrow">Updates</p>
+                <h2>Project Notes And Releases</h2>
+                <p>
+                    Updates will share mission design progress, subsystem experiments, research notes,
+                    product direction, and service milestones as the satellite systems work evolves.
+                </p>
+                <a href="#service">View Service Direction</a>
+            </div>
+        </section>
+
+        <section id="privacyOverlay" class="info-overlay" aria-label="Privacy Policy" aria-hidden="true">
+            <div class="info-panel">
+                <button class="info-close" type="button" aria-label="Close privacy policy overlay">×</button>
+                <p class="eyebrow">Privacy Policy</p>
+                <h2>Privacy First</h2>
+                <p>
+                    We keep contact and collaboration details limited to the purpose of responding,
+                    coordinating work, and improving the satellite systems experience. We do not sell
+                    personal information.
+                </p>
+                <a href="mailto:contact@constellation-verse.example">contact@constellation-verse.example</a>
+            </div>
+        </section>
+
+        <section id="details" class="details">
+            <div>
+                <p class="eyebrow">Research Direction</p>
+                <h2>From concept to system-level design.</h2>
+            </div>
+            <p>
+                This page can grow into the living home for satellite design notes: requirements,
+                block diagrams, trade studies, simulation results, subsystem prototypes, and mission
+                documentation as the project matures.
+            </p>
+        </section>
+    </main>
+
+    <footer id="footer" class="site-footer" aria-label="Footer">
+        <nav class="footer-links" aria-label="Footer links">
+            <a href="#career" data-overlay-target="careerOverlay">Careers</a>
+            <a href="#contact" data-overlay-target="contactOverlay">Contact Us</a>
+            <a href="#privacy" data-overlay-target="privacyOverlay">Privacy Policy</a>
+        </nav>
+        <p>© 2026 Satellite Systems</p>
+    </footer>
+
+    <script>
+        const overlays = document.querySelectorAll('.project-showcase, .info-overlay');
+        const overlayTriggers = document.querySelectorAll('[data-overlay-target]');
+        const overlayCloseButtons = document.querySelectorAll('.project-close, .info-close');
+        const projectOverlay = document.getElementById('projectOverlay');
+        const projectOverlayOpen = document.getElementById('projectOverlayOpen');
+        const projectSlide = document.getElementById('projectSlide');
+        const projectPrev = document.getElementById('projectPrev');
+        const projectNext = document.getElementById('projectNext');
+        const systemsOverlay = document.getElementById('systemsOverlay');
+        const systemsOverlayOpen = document.getElementById('systemsOverlayOpen');
+        const systemsSlide = document.getElementById('systemsSlide');
+        const systemsPrev = document.getElementById('systemsPrev');
+        const systemsNext = document.getElementById('systemsNext');
+
+        function showNextSlide(slide) {
+            const items = slide.querySelectorAll('.project-item');
+            slide.appendChild(items[0]);
+        }
+
+        function showPreviousSlide(slide) {
+            const items = slide.querySelectorAll('.project-item');
+            slide.prepend(items[items.length - 1]);
+        }
+
+        function closeOverlays() {
+            overlays.forEach(function(overlay) {
+                overlay.classList.remove('is-open');
+                overlay.setAttribute('aria-hidden', 'true');
+            });
+            document.body.classList.remove('overlay-open');
+        }
+
+        function openOverlay(overlay) {
+            closeOverlays();
+            overlay.classList.add('is-open');
+            overlay.setAttribute('aria-hidden', 'false');
+            document.body.classList.add('overlay-open');
+        }
+
+        projectOverlayOpen.addEventListener('click', function() {
+            openOverlay(projectOverlay);
+        });
+
+        systemsOverlayOpen.addEventListener('click', function() {
+            openOverlay(systemsOverlay);
+        });
+
+        projectNext.addEventListener('click', function() {
+            showNextSlide(projectSlide);
+        });
+
+        projectPrev.addEventListener('click', function() {
+            showPreviousSlide(projectSlide);
+        });
+
+        systemsNext.addEventListener('click', function() {
+            showNextSlide(systemsSlide);
+        });
+
+        systemsPrev.addEventListener('click', function() {
+            showPreviousSlide(systemsSlide);
+        });
+
+        overlayTriggers.forEach(function(trigger) {
+            trigger.addEventListener('click', function(event) {
+                const overlay = document.getElementById(trigger.dataset.overlayTarget);
+                if (overlay) {
+                    event.preventDefault();
+                    openOverlay(overlay);
+                }
+            });
+        });
+
+        overlayCloseButtons.forEach(function(button) {
+            button.addEventListener('click', closeOverlays);
+        });
+
+        overlays.forEach(function(overlay) {
+            overlay.addEventListener('click', function(event) {
+                if (event.target === overlay) {
+                    closeOverlays();
+                }
+            });
+        });
+
+        document.querySelectorAll('.project-item .content a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                closeOverlays();
+            });
+        });
+
+        document.querySelectorAll('.info-panel a[href^="#"]').forEach(function(link) {
+            link.addEventListener('click', function() {
+                closeOverlays();
+            });
+        });
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeOverlays();
+            }
+        });
+    </script>
+</body>
+</html>
