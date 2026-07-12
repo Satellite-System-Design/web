@@ -178,8 +178,121 @@ h2 {
 }
 
 .mission-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(360px, 0.8fr);
+    gap: clamp(40px, 7vw, 100px);
+    align-items: center;
     width: min(1180px, calc(100% - 56px));
     margin: 0 auto;
+}
+
+.mission-copy {
+    min-width: 0;
+}
+
+.mission-visual {
+    position: relative;
+    width: min(100%, 480px);
+    aspect-ratio: 1;
+    justify-self: end;
+    overflow: visible;
+    background: transparent;
+}
+
+.mission-orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 1px solid rgba(142, 228, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) rotate(-24deg);
+}
+
+.mission-orbit-outer {
+    width: 82%;
+    height: 52%;
+}
+
+.mission-orbit-inner {
+    width: 60%;
+    height: 38%;
+    border-style: dashed;
+}
+
+.mission-earth {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: grid;
+    place-items: center;
+    width: 34%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    color: #ffffff;
+    background: radial-gradient(circle at 35% 30%, #8ee4ff, #196e91 58%, #092a46);
+    box-shadow: 0 0 42px rgba(142, 228, 255, 0.36);
+    transform: translate(-50%, -50%);
+}
+
+.mission-earth span {
+    font-size: clamp(11px, 1.4vw, 16px);
+    font-weight: 800;
+    line-height: 1.15;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.mission-satellite {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    width: 22%;
+    animation: orbitSatellite 9s linear infinite;
+}
+
+.satellite-body {
+    width: 30%;
+    aspect-ratio: 0.72;
+    background: #f8fafc;
+    border: 2px solid #8ee4ff;
+    box-shadow: 0 0 18px rgba(142, 228, 255, 0.7);
+}
+
+.satellite-panel {
+    width: 35%;
+    aspect-ratio: 1.6;
+    background: repeating-linear-gradient(90deg, #21698a 0 7px, #103a5d 7px 10px);
+    border: 1px solid #8ee4ff;
+}
+
+.mission-step {
+    position: absolute;
+    padding: 7px 10px;
+    color: #8ee4ff;
+    background: rgba(5, 12, 24, 0.78);
+    border: 1px solid rgba(142, 228, 255, 0.28);
+    font-size: clamp(10px, 1.1vw, 13px);
+    font-weight: 800;
+    text-transform: uppercase;
+    animation: missionStep 8s ease-in-out infinite;
+}
+
+.mission-step-idea { top: 10%; left: 40%; animation-delay: 0s; }
+.mission-step-knowledge { top: 31%; right: 5%; animation-delay: 2s; }
+.mission-step-tools { right: 14%; bottom: 16%; animation-delay: 4s; }
+.mission-step-prototypes { left: 7%; bottom: 24%; animation-delay: 6s; }
+
+@keyframes orbitSatellite {
+    from { transform: translate(-50%, -50%) rotate(0deg) translateX(185%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg) translateX(185%) rotate(-360deg); }
+}
+
+@keyframes missionStep {
+    0%, 18%, 100% { opacity: 0.42; transform: scale(0.94); }
+    25%, 43% { opacity: 1; transform: scale(1.06); box-shadow: 0 0 24px rgba(142, 228, 255, 0.24); }
+    50% { opacity: 0.42; transform: scale(0.94); }
 }
 
 .mission-intro h2 {
@@ -215,9 +328,17 @@ h2 {
 }
 
 .strategy-inner {
+    display: grid;
+    grid-template-columns: minmax(340px, 0.8fr) minmax(0, 1fr);
+    gap: clamp(40px, 7vw, 100px);
+    align-items: center;
     width: min(1180px, calc(100% - 56px));
     margin: 0 auto;
     text-align: right;
+}
+
+.strategy-copy {
+    min-width: 0;
 }
 
 .strategy-section-alt .strategy-inner {
@@ -247,6 +368,141 @@ h2 {
     color: rgba(255, 255, 255, 0.76);
     font-size: 20px;
     line-height: 1.65;
+}
+
+.section-visual {
+    position: relative;
+    width: min(100%, 460px);
+    aspect-ratio: 1.15;
+    overflow: visible;
+    background: transparent;
+}
+
+.pipeline-visual {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+    padding: 40px 24px;
+}
+
+.pipeline-line,
+.pipeline-pulse {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    width: 80%;
+    height: 2px;
+    background: rgba(142, 228, 255, 0.28);
+}
+
+.pipeline-pulse {
+    width: 18%;
+    background: linear-gradient(90deg, transparent, #8ee4ff, transparent);
+    box-shadow: 0 0 16px #8ee4ff;
+    animation: pipelineFlow 4s ease-in-out infinite;
+}
+
+.pipeline-node {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    gap: 12px;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.pipeline-node b {
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    color: #8ee4ff;
+    background: #091827;
+    border: 1px solid #8ee4ff;
+    border-radius: 50%;
+    animation: nodeSignal 4s ease-in-out infinite;
+}
+
+.pipeline-node:nth-of-type(4) b { animation-delay: 1s; }
+.pipeline-node:nth-of-type(5) b { animation-delay: 2s; }
+.pipeline-node:nth-of-type(6) b { animation-delay: 3s; }
+
+.modules-visual {
+    justify-self: end;
+}
+
+.module-core,
+.module {
+    position: absolute;
+    display: grid;
+    place-items: center;
+    color: #ffffff;
+    background: #0c2539;
+    border: 1px solid rgba(142, 228, 255, 0.5);
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.module-core {
+    top: 50%;
+    left: 50%;
+    z-index: 3;
+    width: 112px;
+    height: 112px;
+    border-radius: 24px;
+    box-shadow: 0 0 38px rgba(142, 228, 255, 0.24);
+    transform: translate(-50%, -50%);
+}
+
+.module {
+    width: 90px;
+    height: 46px;
+    animation: moduleFloat 4s ease-in-out infinite;
+}
+
+.module-control { top: 12%; left: 12%; }
+.module-computing { top: 12%; right: 12%; animation-delay: 1s; }
+.module-communication { bottom: 12%; left: 12%; animation-delay: 2s; }
+.module-power { right: 12%; bottom: 12%; animation-delay: 3s; }
+
+.module-link {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 62%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #8ee4ff, transparent);
+    transform-origin: center;
+    animation: linkPulse 2.4s ease-in-out infinite;
+}
+
+.module-link-one { transform: translate(-50%, -50%) rotate(38deg); }
+.module-link-two { transform: translate(-50%, -50%) rotate(-38deg); animation-delay: 1.2s; }
+
+@keyframes pipelineFlow {
+    0% { transform: translateX(-20%); opacity: 0; }
+    15% { opacity: 1; }
+    85% { opacity: 1; }
+    100% { transform: translateX(450%); opacity: 0; }
+}
+
+@keyframes nodeSignal {
+    0%, 18%, 100% { color: #8ee4ff; background: #091827; }
+    25%, 42% { color: #07101d; background: #8ee4ff; box-shadow: 0 0 24px rgba(142, 228, 255, 0.58); }
+}
+
+@keyframes moduleFloat {
+    0%, 100% { transform: translateY(0); box-shadow: none; }
+    50% { transform: translateY(-8px); box-shadow: 0 10px 24px rgba(142, 228, 255, 0.2); }
+}
+
+@keyframes linkPulse {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 1; box-shadow: 0 0 14px #8ee4ff; }
 }
 
 .project-showcase,
@@ -357,6 +613,13 @@ h2 {
     box-shadow: 0 30px 80px rgba(0, 0, 0, 0.18);
 }
 
+#systemsOverlay .project-stage {
+    background:
+        radial-gradient(circle at 76% 48%, rgba(35, 132, 170, 0.2), transparent 30%),
+        linear-gradient(110deg, #07101d 0%, #091827 58%, #06101c 100%);
+    border: 1px solid rgba(142, 228, 255, 0.14);
+}
+
 .project-slide {
     position: absolute;
     inset: 0;
@@ -412,6 +675,277 @@ h2 {
 .project-item:nth-child(2)::before {
     background: linear-gradient(90deg, rgba(7, 12, 22, 0.62), rgba(7, 12, 22, 0.18) 58%, rgba(7, 12, 22, 0.64));
 }
+
+#systemsOverlay .project-item {
+    background-color: #0a1724;
+    background-position: center;
+    background-size: 86% auto;
+    border: 1px solid rgba(142, 228, 255, 0.18);
+}
+
+#systemsOverlay .project-item::before {
+    background: linear-gradient(0deg, rgba(5, 12, 22, 0.94), rgba(5, 12, 22, 0.18) 68%);
+}
+
+#systemsOverlay .project-item:nth-child(1),
+#systemsOverlay .project-item:nth-child(2) {
+    background-image: none !important;
+    background-color: transparent;
+    background-position: 82% center;
+    background-size: min(54vw, 680px) auto;
+    border: 0;
+}
+
+#systemsOverlay .project-item:nth-child(1)::before,
+#systemsOverlay .project-item:nth-child(2)::before {
+    background:
+        linear-gradient(90deg, rgba(5, 12, 22, 0.98) 0%, rgba(5, 12, 22, 0.9) 34%, rgba(5, 12, 22, 0.22) 68%, rgba(5, 12, 22, 0.5) 100%);
+}
+
+#systemsOverlay .project-item:nth-child(3),
+#systemsOverlay .project-item:nth-child(4),
+#systemsOverlay .project-item:nth-child(5) {
+    background-repeat: no-repeat;
+    box-shadow: 0 22px 44px rgba(0, 0, 0, 0.38), inset 0 0 32px rgba(142, 228, 255, 0.05);
+}
+
+#systemsOverlay .system-item:nth-child(3)::after,
+#systemsOverlay .system-item:nth-child(4)::after,
+#systemsOverlay .system-item:nth-child(5)::after {
+    content: attr(data-title);
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    right: 14px;
+    z-index: 3;
+    padding: 0;
+    color: #ffffff;
+    background: transparent;
+    border: 0;
+    font-size: 11px;
+    font-weight: 800;
+    line-height: 1.2;
+    text-align: left;
+    text-transform: uppercase;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+}
+
+#systemsOverlay .system-item:nth-child(3)::after {
+    content: "Next · " attr(data-title);
+    color: #8ee4ff;
+    background: transparent;
+}
+
+#systemsOverlay .system-payload:nth-child(n+3):nth-child(-n+5),
+#systemsOverlay .system-thermal:nth-child(n+3):nth-child(-n+5) {
+    animation: tileScan 3.4s ease-in-out infinite;
+}
+
+#systemsOverlay .system-computing:nth-child(n+3):nth-child(-n+5),
+#systemsOverlay .system-power:nth-child(n+3):nth-child(-n+5) {
+    animation: tilePulse 2.6s ease-in-out infinite;
+}
+
+#systemsOverlay .system-communication:nth-child(n+3):nth-child(-n+5) {
+    animation: tileSignal 3s ease-in-out infinite;
+}
+
+#systemsOverlay .system-control:nth-child(n+3):nth-child(-n+5),
+#systemsOverlay .system-architecture:nth-child(n+3):nth-child(-n+5) {
+    animation: tileStabilize 4s ease-in-out infinite;
+}
+
+#systemsOverlay .system-structure:nth-child(n+3):nth-child(-n+5) {
+    animation: tileStructure 3.8s ease-in-out infinite;
+}
+
+#systemsOverlay .system-propulsion:nth-child(n+3):nth-child(-n+5) {
+    animation: tileThrust 2.2s ease-in-out infinite;
+}
+
+@keyframes tileScan {
+    0%, 100% { background-position: 50% 56%; background-size: 82% auto; }
+    50% { background-position: 50% 48%; background-size: 91% auto; }
+}
+
+@keyframes tilePulse {
+    0%, 100% { background-size: 82% auto; box-shadow: 0 22px 44px rgba(0, 0, 0, 0.38), inset 0 0 20px rgba(142, 228, 255, 0.04); }
+    50% { background-size: 90% auto; box-shadow: 0 22px 44px rgba(0, 0, 0, 0.38), inset 0 0 38px rgba(142, 228, 255, 0.2); }
+}
+
+@keyframes tileSignal {
+    0%, 100% { background-position: 44% 54%; }
+    50% { background-position: 58% 48%; }
+}
+
+@keyframes tileStabilize {
+    0%, 100% { background-position: 50% 52%; }
+    25% { background-position: 47% 49%; }
+    75% { background-position: 53% 49%; }
+}
+
+@keyframes tileStructure {
+    0%, 100% { background-size: 84% auto; }
+    50% { background-size: 87% auto; }
+}
+
+@keyframes tileThrust {
+    0%, 100% { background-position: 50% 58%; }
+    50% { background-position: 50% 45%; box-shadow: 0 26px 48px rgba(0, 0, 0, 0.4), inset 0 -26px 32px rgba(142, 228, 255, 0.16); }
+}
+
+/* Animated subsystem diagrams inside the preview tiles. */
+.tile-visual {
+    display: none;
+}
+
+#systemsOverlay .system-item:nth-child(3),
+#systemsOverlay .system-item:nth-child(4),
+#systemsOverlay .system-item:nth-child(5) {
+    background-image: none !important;
+    animation: none;
+}
+
+#systemsOverlay .system-item:nth-child(3) .tile-visual,
+#systemsOverlay .system-item:nth-child(4) .tile-visual,
+#systemsOverlay .system-item:nth-child(5) .tile-visual {
+    position: absolute;
+    inset: 62px 12px 14px;
+    z-index: 2;
+    display: block;
+}
+
+.tile-visual-orbit,
+.tile-visual-core,
+.tile-visual-node,
+.tile-visual-wave {
+    position: absolute;
+}
+
+.tile-visual-orbit {
+    top: 50%;
+    left: 50%;
+    width: 82%;
+    height: 58%;
+    border: 1px solid rgba(142, 228, 255, 0.34);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.tile-visual-core {
+    top: 50%;
+    left: 50%;
+    display: grid;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    color: #07101d;
+    background: #8ee4ff;
+    border-radius: 12px;
+    box-shadow: 0 0 22px rgba(142, 228, 255, 0.48);
+    transform: translate(-50%, -50%);
+}
+
+.tile-visual-node {
+    width: 13px;
+    height: 13px;
+    background: #dff8ff;
+    border: 2px solid #3ba5ce;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(142, 228, 255, 0.4);
+}
+
+.tile-node-one { top: 13%; left: 14%; }
+.tile-node-two { top: 12%; right: 14%; }
+.tile-node-three { right: 13%; bottom: 12%; }
+.tile-node-four { bottom: 12%; left: 13%; }
+
+.tile-visual-wave {
+    top: 50%;
+    left: 50%;
+    width: 74%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(142, 228, 255, 0.9), transparent);
+    transform: translate(-50%, -50%);
+}
+
+.tile-wave-two {
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+
+/* Architecture: interoperable modules continuously connect to one platform. */
+.system-architecture .tile-visual-orbit { animation: tileDiagramOrbit 7s linear infinite; }
+.system-architecture .tile-visual-node { animation: tileModuleConnect 2.8s ease-in-out infinite; }
+.system-architecture .tile-node-two { animation-delay: 0.7s; }
+.system-architecture .tile-node-three { animation-delay: 1.4s; }
+.system-architecture .tile-node-four { animation-delay: 2.1s; }
+.system-architecture .tile-visual-core::after { content: "SYS"; font-size: 10px; font-weight: 900; }
+
+/* Payload: an instrument scans its observation field. */
+.system-payload .tile-visual-core { border-radius: 50%; background: radial-gradient(circle, #07101d 0 24%, #8ee4ff 26% 48%, #287da0 50%); }
+.system-payload .tile-wave-one { top: 20%; width: 90%; animation: tileDiagramScan 2.4s linear infinite; }
+.system-payload .tile-wave-two,
+.system-payload .tile-visual-node { display: none; }
+
+/* Computing: data moves between processor and memory nodes. */
+.system-computing .tile-visual-core { border-radius: 4px; background: repeating-linear-gradient(90deg, #8ee4ff 0 6px, #26799b 6px 8px); }
+.system-computing .tile-visual-node { border-radius: 2px; animation: tileDataNode 1.6s steps(2) infinite; }
+.system-computing .tile-node-two { animation-delay: 0.4s; }
+.system-computing .tile-node-three { animation-delay: 0.8s; }
+.system-computing .tile-node-four { animation-delay: 1.2s; }
+
+/* Communication: radio waves expand away from the antenna. */
+.system-communication .tile-visual-core { width: 12px; height: 62px; border-radius: 8px; }
+.system-communication .tile-visual-core::after { content: ""; width: 44px; height: 18px; border: 3px solid #07101d; border-top: 0; border-radius: 0 0 30px 30px; }
+.system-communication .tile-visual-wave { width: 46px; height: 46px; background: transparent; border: 1px solid #8ee4ff; border-radius: 50%; animation: tileRadioWave 2s ease-out infinite; }
+.system-communication .tile-wave-two { animation-delay: 1s; }
+.system-communication .tile-visual-node,
+.system-communication .tile-visual-orbit { display: none; }
+
+/* Power: energy is generated, stored, and distributed to each node. */
+.system-power .tile-visual-core { border-radius: 50%; animation: tileEnergyCore 1.8s ease-in-out infinite; }
+.system-power .tile-visual-core::after { content: "⚡"; font-size: 22px; }
+.system-power .tile-visual-wave { animation: tileEnergyLine 1.8s ease-in-out infinite; }
+.system-power .tile-wave-two { animation-delay: 0.9s; }
+
+/* GNC: sensing and actuation stabilize the platform. */
+.system-control .tile-visual-orbit { width: 72%; height: 72%; animation: tileControlOrbit 3.2s linear infinite; }
+.system-control .tile-visual-core::after { content: "+"; font-size: 26px; font-weight: 300; }
+.system-control .tile-visual-node { border-radius: 50%; animation: tileControlNode 2s ease-in-out infinite; }
+
+/* Thermal: heat flows outward while the core stays regulated. */
+.system-thermal .tile-visual-core { background: linear-gradient(135deg, #8ee4ff, #ff9d61); border-radius: 50%; animation: tileThermalCore 2.4s ease-in-out infinite; }
+.system-thermal .tile-visual-wave { height: 3px; background: linear-gradient(90deg, transparent, #ff9d61, transparent); animation: tileHeatWave 2.2s ease-out infinite; }
+.system-thermal .tile-wave-two { animation-delay: 1.1s; }
+
+/* Structure: corner interfaces lock into a rigid frame. */
+.system-structure .tile-visual-orbit { width: 68%; height: 68%; border-radius: 4px; animation: tileFrameLock 3s ease-in-out infinite; }
+.system-structure .tile-visual-core { border-radius: 3px; background: transparent; border: 3px solid #8ee4ff; }
+.system-structure .tile-visual-wave { opacity: 0.45; }
+.system-structure .tile-visual-node { border-radius: 1px; animation: tileStructureNode 3s ease-in-out infinite; }
+
+/* Propulsion: thrust pulses move the spacecraft upward. */
+.system-propulsion .tile-visual-core { top: 38%; width: 32px; height: 58px; border-radius: 50% 50% 10px 10px; animation: tileRocket 1.6s ease-in-out infinite; }
+.system-propulsion .tile-visual-core::after { content: ""; position: absolute; top: 100%; width: 16px; height: 58px; background: linear-gradient(#8ee4ff, rgba(142, 228, 255, 0)); clip-path: polygon(50% 100%, 0 0, 100% 0); animation: tileExhaust 0.8s ease-in-out infinite; }
+.system-propulsion .tile-visual-node,
+.system-propulsion .tile-visual-orbit,
+.system-propulsion .tile-visual-wave { display: none; }
+
+@keyframes tileDiagramOrbit { to { transform: translate(-50%, -50%) rotate(360deg); } }
+@keyframes tileModuleConnect { 50% { transform: translate(10px, 8px) scale(1.2); background: #8ee4ff; } }
+@keyframes tileDiagramScan { from { transform: translate(-50%, 0); } to { transform: translate(-50%, 150px); } }
+@keyframes tileDataNode { 50% { background: #8ee4ff; box-shadow: 0 0 18px #8ee4ff; } }
+@keyframes tileRadioWave { from { opacity: 1; transform: translate(-50%, -50%) scale(0.3); } to { opacity: 0; transform: translate(-50%, -50%) scale(2.5); } }
+@keyframes tileEnergyCore { 50% { transform: translate(-50%, -50%) scale(1.16); box-shadow: 0 0 34px #8ee4ff; } }
+@keyframes tileEnergyLine { 50% { opacity: 0.2; transform: translate(-50%, -50%) scaleX(0.6); } }
+@keyframes tileControlOrbit { to { transform: translate(-50%, -50%) rotate(360deg); } }
+@keyframes tileControlNode { 50% { transform: scale(0.7); opacity: 0.45; } }
+@keyframes tileThermalCore { 50% { filter: hue-rotate(35deg); transform: translate(-50%, -50%) scale(1.08); } }
+@keyframes tileHeatWave { from { opacity: 0.8; transform: translate(-50%, -50%) scale(0.4); } to { opacity: 0; transform: translate(-50%, -50%) scale(1.4); } }
+@keyframes tileFrameLock { 50% { width: 54%; height: 54%; border-color: #ffffff; } }
+@keyframes tileStructureNode { 50% { transform: translate(6px, 6px); } }
+@keyframes tileRocket { 50% { transform: translate(-50%, -58%); } }
+@keyframes tileExhaust { 50% { height: 38px; opacity: 0.45; } }
 
 .project-item:nth-child(3) {
     left: 50%;
@@ -494,6 +1028,268 @@ h2 {
     animation: showProjectContent 0.9s ease-in-out 0.36s 1 forwards;
 }
 
+#systemsOverlay .project-item .content {
+    left: clamp(42px, 6vw, 88px);
+    width: min(430px, calc(50% - 110px));
+}
+
+#systemsOverlay .project-item .name {
+    margin-bottom: 16px;
+}
+
+#systemsOverlay .project-item .des {
+    margin-bottom: 16px;
+}
+
+.system-components {
+    margin-bottom: 16px;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: showProjectContent 0.9s ease-in-out 0.3s 1 forwards;
+}
+
+.system-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: showProjectContent 0.9s ease-in-out 0.34s 1 forwards;
+}
+
+.system-meta span {
+    display: inline-flex;
+    align-items: center;
+    min-height: 28px;
+    padding: 6px 10px;
+    color: rgba(255, 255, 255, 0.86);
+    background: rgba(8, 12, 22, 0.64);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 999px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.system-meta .ai-badge {
+    color: #07101d;
+    background: #8ee4ff;
+    border-color: #8ee4ff;
+    box-shadow: 0 0 20px rgba(142, 228, 255, 0.22);
+}
+
+.systems-active-content,
+.project-active-content {
+    position: absolute;
+    top: 50%;
+    left: clamp(42px, 6vw, 88px);
+    z-index: 8;
+    width: min(430px, calc(50% - 110px));
+    transform: translateY(-50%);
+}
+
+.systems-active-content h2,
+.project-active-content h2 {
+    margin: 0 0 16px;
+    color: #ffffff;
+    font-size: clamp(28px, 3.5vw, 48px);
+    font-weight: 800;
+    line-height: 0.98;
+    text-transform: uppercase;
+}
+
+.systems-active-content > p:not(.eyebrow):not(.system-components),
+.project-active-content > p:not(.eyebrow) {
+    margin: 0 0 16px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 17px;
+    line-height: 1.5;
+}
+
+.systems-active-content > a,
+.project-active-content > a {
+    display: inline-flex;
+    padding: 12px 18px;
+    color: #07101d;
+    background: #ffffff;
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+#systemsOverlay .system-item {
+    top: 50%;
+    width: 210px;
+    height: 310px;
+    border-radius: 24px;
+    background-image: none !important;
+    background-color: #0a1724;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-50%);
+}
+
+#systemsOverlay .system-item:nth-child(1) {
+    left: 50%;
+    z-index: 6;
+    opacity: 1;
+    pointer-events: auto;
+    border: 2px solid #8ee4ff;
+    box-shadow: 0 28px 52px rgba(0, 0, 0, 0.4), 0 0 26px rgba(142, 228, 255, 0.2);
+}
+
+#systemsOverlay .system-item:nth-child(2) {
+    left: calc(50% + 240px);
+    z-index: 5;
+    opacity: 1;
+    pointer-events: auto;
+    border: 1px solid rgba(142, 228, 255, 0.18);
+}
+
+#systemsOverlay .system-item:nth-child(3) {
+    left: calc(50% + 480px);
+    z-index: 4;
+    opacity: 1;
+    pointer-events: auto;
+    border: 1px solid rgba(142, 228, 255, 0.18);
+}
+
+#systemsOverlay .system-item:nth-child(n+4) {
+    left: calc(50% + 720px);
+    opacity: 0;
+}
+
+#systemsOverlay .system-item .content {
+    display: none !important;
+}
+
+#systemsOverlay .system-item:nth-child(1) .tile-visual,
+#systemsOverlay .system-item:nth-child(2) .tile-visual,
+#systemsOverlay .system-item:nth-child(3) .tile-visual {
+    position: absolute;
+    inset: 62px 12px 14px;
+    z-index: 2;
+    display: block;
+}
+
+#systemsOverlay .system-item:nth-child(1)::after,
+#systemsOverlay .system-item:nth-child(2)::after,
+#systemsOverlay .system-item:nth-child(3)::after {
+    content: attr(data-title);
+    position: absolute;
+    top: 16px;
+    left: 14px;
+    right: 14px;
+    z-index: 4;
+    padding: 0;
+    color: #ffffff;
+    background: transparent;
+    border: 0;
+    font-size: 11px;
+    font-weight: 800;
+    line-height: 1.2;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+}
+
+#projectOverlay .project-tile {
+    top: 50%;
+    width: 210px;
+    height: 310px;
+    border-radius: 24px;
+    background-image: none !important;
+    background-color: #0a1724;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-50%);
+}
+
+#projectOverlay .project-tile:nth-child(1) {
+    left: 50%;
+    z-index: 6;
+    opacity: 1;
+    pointer-events: auto;
+    border: 2px solid #8ee4ff;
+    box-shadow: 0 28px 52px rgba(0, 0, 0, 0.4), 0 0 26px rgba(142, 228, 255, 0.2);
+}
+
+#projectOverlay .project-tile:nth-child(2) {
+    left: calc(50% + 240px);
+    z-index: 5;
+    opacity: 1;
+    pointer-events: auto;
+    border: 1px solid rgba(142, 228, 255, 0.18);
+}
+
+#projectOverlay .project-tile:nth-child(3) {
+    left: calc(50% + 480px);
+    z-index: 4;
+    opacity: 1;
+    pointer-events: auto;
+    border: 1px solid rgba(142, 228, 255, 0.18);
+}
+
+#projectOverlay .project-tile:nth-child(n+4) {
+    left: calc(50% + 720px);
+    opacity: 0;
+}
+
+#projectOverlay .project-tile .content {
+    display: none !important;
+}
+
+#projectOverlay .project-tile:nth-child(1) .tile-visual,
+#projectOverlay .project-tile:nth-child(2) .tile-visual,
+#projectOverlay .project-tile:nth-child(3) .tile-visual {
+    position: absolute;
+    inset: 62px 12px 14px;
+    z-index: 2;
+    display: block;
+}
+
+#projectOverlay .project-tile:nth-child(1)::after,
+#projectOverlay .project-tile:nth-child(2)::after,
+#projectOverlay .project-tile:nth-child(3)::after {
+    content: attr(data-title);
+    position: absolute;
+    top: 16px;
+    left: 14px;
+    right: 14px;
+    z-index: 4;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 800;
+    line-height: 1.2;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+}
+
+.project-power .tile-visual-core { border-radius: 50%; animation: tileEnergyCore 1.8s ease-in-out infinite; }
+.project-power .tile-visual-core::after { content: "⚡"; font-size: 22px; }
+.project-power .tile-visual-wave { animation: tileEnergyLine 1.8s ease-in-out infinite; }
+.project-sky .tile-visual-orbit { animation: tileDiagramOrbit 6s linear infinite; }
+.project-sky .tile-visual-node { border-radius: 50%; animation: tileModuleConnect 2.8s ease-in-out infinite; }
+.project-sky .tile-visual-core::after { content: "SKY"; font-size: 9px; font-weight: 900; }
+.project-communication .tile-visual-core { width: 12px; height: 62px; border-radius: 8px; }
+.project-communication .tile-visual-wave { width: 46px; height: 46px; background: transparent; border: 1px solid #8ee4ff; border-radius: 50%; animation: tileRadioWave 2s ease-out infinite; }
+.project-communication .tile-wave-two { animation-delay: 1s; }
+.project-communication .tile-visual-node,
+.project-communication .tile-visual-orbit { display: none; }
+.project-experiment .tile-visual-core { border-radius: 4px; background: repeating-linear-gradient(90deg, #8ee4ff 0 6px, #26799b 6px 8px); }
+.project-experiment .tile-visual-node { border-radius: 2px; animation: tileDataNode 1.6s steps(2) infinite; }
+.project-experiment .tile-wave-one { top: 20%; width: 90%; animation: tileDiagramScan 2.4s linear infinite; }
+.project-control .tile-visual-orbit { width: 72%; height: 72%; animation: tileControlOrbit 3.2s linear infinite; }
+.project-control .tile-visual-core::after { content: "+"; font-size: 26px; font-weight: 300; }
+.project-control .tile-visual-node { border-radius: 50%; animation: tileControlNode 2s ease-in-out infinite; }
+
+
 @keyframes showProjectContent {
     from {
         opacity: 0;
@@ -548,6 +1344,89 @@ h2 {
 .details > div,
 .details > p {
     grid-column: 2;
+}
+
+.details > .details-visual {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: center;
+}
+
+.details > .details-copy {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: center;
+}
+
+.details-visual {
+    width: min(100%, 430px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+}
+
+.design-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 1px dashed rgba(142, 228, 255, 0.42);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: designSpin 16s linear infinite;
+}
+
+.design-ring-one {
+    width: 72%;
+    height: 72%;
+}
+
+.design-ring-two {
+    width: 48%;
+    height: 48%;
+    animation-direction: reverse;
+    animation-duration: 10s;
+}
+
+.design-core {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: grid;
+    place-items: center;
+    width: 116px;
+    height: 116px;
+    color: #07101d;
+    background: #8ee4ff;
+    border-radius: 50%;
+    font-size: 15px;
+    font-weight: 800;
+    text-transform: uppercase;
+    box-shadow: 0 0 40px rgba(142, 228, 255, 0.38);
+    transform: translate(-50%, -50%);
+    animation: designCore 3s ease-in-out infinite;
+}
+
+.design-stage {
+    position: absolute;
+    padding: 9px 12px;
+    color: #8ee4ff;
+    background: rgba(5, 12, 24, 0.88);
+    border: 1px solid rgba(142, 228, 255, 0.34);
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.design-concept { top: 9%; left: 50%; transform: translateX(-50%); }
+.design-requirements { top: 50%; right: 3%; transform: translateY(-50%); }
+.design-validate { bottom: 9%; left: 50%; transform: translateX(-50%); }
+
+@keyframes designSpin {
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes designCore {
+    0%, 100% { transform: translate(-50%, -50%) scale(0.94); }
+    50% { transform: translate(-50%, -50%) scale(1.04); }
 }
 
 .details h2 {
@@ -621,6 +1500,26 @@ h2 {
         --footer-height: 75px;
     }
 
+    .mission-inner {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+
+    .mission-visual {
+        width: min(100%, 380px);
+        justify-self: center;
+    }
+
+    .strategy-inner {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+
+    .section-visual {
+        width: min(100%, 380px);
+        justify-self: center;
+    }
+
     .project-stage {
         width: min(680px, calc(100% - 36px));
         min-height: 720px;
@@ -633,6 +1532,25 @@ h2 {
         width: auto;
         max-width: none;
         transform: none;
+    }
+
+    #systemsOverlay .project-item .content {
+        width: auto;
+    }
+
+    #systemsOverlay .project-item .des {
+        font-size: 17px;
+    }
+
+    #systemsOverlay .project-item:nth-child(1),
+    #systemsOverlay .project-item:nth-child(2) {
+        background-position: 78% 82%;
+        background-size: min(88vw, 520px) auto;
+    }
+
+    #systemsOverlay .project-item:nth-child(1)::before,
+    #systemsOverlay .project-item:nth-child(2)::before {
+        background: linear-gradient(180deg, rgba(5, 12, 22, 0.98) 0%, rgba(5, 12, 22, 0.86) 48%, rgba(5, 12, 22, 0.3) 78%, rgba(5, 12, 22, 0.72) 100%);
     }
 
     .project-item {
@@ -654,8 +1572,51 @@ h2 {
         transform: none;
     }
 
+    .systems-active-content,
+    .project-active-content {
+        top: 30px;
+        left: 26px;
+        right: 26px;
+        width: auto;
+        transform: none;
+    }
+
+    #systemsOverlay .system-item,
+    #projectOverlay .project-tile {
+        top: auto;
+        bottom: 90px;
+        width: 170px;
+        height: 230px;
+        transform: none;
+    }
+
+    #systemsOverlay .system-item:nth-child(1) { left: 26px; }
+    #systemsOverlay .system-item:nth-child(2) { left: 216px; }
+    #systemsOverlay .system-item:nth-child(3) { left: 406px; }
+    #systemsOverlay .system-item:nth-child(n+4) { left: 596px; }
+
+    #projectOverlay .project-tile:nth-child(1) { left: 26px; }
+    #projectOverlay .project-tile:nth-child(2) { left: 216px; }
+    #projectOverlay .project-tile:nth-child(3) { left: 406px; }
+    #projectOverlay .project-tile:nth-child(n+4) { left: 596px; }
+
+    #systemsOverlay .project-controls,
+    #projectOverlay .project-controls {
+        bottom: 20px;
+    }
+
     .details {
         grid-template-columns: 1fr;
+    }
+
+    .details > .details-copy {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .details > .details-visual {
+        grid-column: 1;
+        grid-row: 2;
     }
 
     .hero {
@@ -698,6 +1659,56 @@ h2 {
         width: calc(100% - 32px);
     }
 
+    .mission-inner {
+        width: calc(100% - 32px);
+    }
+
+    .systems-active-content,
+    .project-active-content {
+        top: 24px;
+        left: 20px;
+        right: 20px;
+    }
+
+    .systems-active-content h2,
+    .project-active-content h2 {
+        font-size: 28px;
+    }
+
+    .systems-active-content > p:not(.eyebrow):not(.system-components),
+    .project-active-content > p:not(.eyebrow) {
+        font-size: 15px;
+    }
+
+    #systemsOverlay .system-item,
+    #projectOverlay .project-tile {
+        bottom: 82px;
+        width: 145px;
+        height: 190px;
+    }
+
+    #systemsOverlay .system-item:nth-child(1) { left: 18px; }
+    #systemsOverlay .system-item:nth-child(2) { left: 178px; }
+    #systemsOverlay .system-item:nth-child(3) { left: 338px; }
+    #systemsOverlay .system-item:nth-child(n+4) { left: 498px; }
+
+    #projectOverlay .project-tile:nth-child(1) { left: 18px; }
+    #projectOverlay .project-tile:nth-child(2) { left: 178px; }
+    #projectOverlay .project-tile:nth-child(3) { left: 338px; }
+    #projectOverlay .project-tile:nth-child(n+4) { left: 498px; }
+
+    #systemsOverlay .system-item:nth-child(1) .tile-visual,
+    #systemsOverlay .system-item:nth-child(2) .tile-visual,
+    #systemsOverlay .system-item:nth-child(3) .tile-visual {
+        inset: 54px 8px 10px;
+    }
+
+    #projectOverlay .project-tile:nth-child(1) .tile-visual,
+    #projectOverlay .project-tile:nth-child(2) .tile-visual,
+    #projectOverlay .project-tile:nth-child(3) .tile-visual {
+        inset: 54px 8px 10px;
+    }
+
     .hero {
         min-height: 100vh;
         padding-top: 92px;
@@ -707,5 +1718,32 @@ h2 {
     .hero p:last-child,
     .details p {
         font-size: 17px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .mission-satellite,
+    .mission-step,
+    .pipeline-pulse,
+    .pipeline-node b,
+    .module,
+    .module-link,
+    .design-ring,
+    .design-core,
+    .tile-visual-orbit,
+    .tile-visual-core,
+    .tile-visual-node,
+    .tile-visual-wave,
+    .tile-visual-core::after,
+    #systemsOverlay .system-item {
+        animation: none;
+    }
+
+    .mission-step {
+        opacity: 1;
     }
 }
